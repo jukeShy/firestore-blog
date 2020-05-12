@@ -5,12 +5,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { Routes } from './routes';
 
+import './style.css';
+
 const App = () => {
-  const routes = Routes(true);
+  const routes = Routes(false);
 
   return (
     <Provider store={store}>
-      <BrowserRouter>{routes}</BrowserRouter>
+      <div id='webapp'>
+        <BrowserRouter>{routes}</BrowserRouter>
+      </div>
     </Provider>
   );
 };
