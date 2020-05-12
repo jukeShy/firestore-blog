@@ -3,10 +3,10 @@ import { Header } from '~components';
 
 const Default = ({ children }) => {
   return (
-    <div>
+    <>
       <Header />
-      <main>{children}</main>
-    </div>
+      <main className='layout'>{children}</main>
+    </>
   );
 };
 
