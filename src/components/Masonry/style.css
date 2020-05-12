@@ -7,36 +7,30 @@
 .masonry-item:nth-child(1) {
   grid-row-end: span 3;
    grid-column-end: span 4;
-   background-color: #fff59d ;
 }
 
 .masonry-item:nth-child(2) {
-  background-color: #ffe082 ;
   grid-row-start: 4;
   grid-row-end: span 3;
   grid-column-end: span 4;
 } 
 
 .masonry-item:nth-child(3) {
-  background-color: #ffcc80 ;
   grid-row-end: span 6;
   grid-column-end: span 3;
 }
 
 .masonry-item:nth-child(4) {
-  background-color: #ffab91 ;
   grid-row-end: span 2;
   grid-column-end: span 2;
 }
 
 .masonry-item:nth-child(5) {
-  background-color: #a5d6a7 ;
   grid-row-end: span 2;
   grid-column-end: span 2;
 }
 
 .masonry-item:nth-child(6) {
-  background-color: #0277bd ;
   grid-row-end: span 2;
   grid-column-end: span 2;
 }

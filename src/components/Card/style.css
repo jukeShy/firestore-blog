@@ -40,3 +40,27 @@
 .m-card__title {
   margin-top: 0;
 }
+/* 
+.m-card:nth-child(1) {
+   background-color: #fff59d ;
+}
+
+.m-card:nth-child(2) {
+  background-color: #ffe082 ;
+} 
+
+.m-card:nth-child(3) {
+  background-color: #ffcc80 ;
+}
+
+.m-card:nth-child(4) {
+  background-color: #ffab91 ;
+}
+
+.m-card:nth-child(5) {
+  background-color: #a5d6a7 ;
+}
+
+.m-card:nth-child(6) {
+  background-color: #0277bd ;
+} */
