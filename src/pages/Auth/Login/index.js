@@ -1,10 +1,11 @@
 import React from 'react';
+import { Center } from '~/layouts';
 
 const Login = () => {
   return (
-    <div>
+    <Center>
       <h2>Login</h2>
-    </div>
+    </Center>
   );
 };
 

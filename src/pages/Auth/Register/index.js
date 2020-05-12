@@ -1,10 +1,11 @@
 import React from 'react';
+import { Center } from '~/layouts';
 
 const Register = () => {
   return (
-    <div>
+    <Center>
       <h2>Register</h2>
-    </div>
+    </Center>
   );
 };
 

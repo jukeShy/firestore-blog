@@ -1,10 +1,11 @@
 import React from 'react';
+import { Default } from '~/layouts';
 
 const Home = () => {
   return (
-    <div>
+    <Default>
       <h1>Home page</h1>
-    </div>
+    </Default>
   );
 };
 
