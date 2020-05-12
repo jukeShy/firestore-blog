@@ -70,6 +70,7 @@ const Form = ({ formTitle = 'Form', onSubmitHandler, Link }) => {
 Form.propTypes = {
   formTitle: PropTypes.string.isRequired,
   onSubmitHandler: PropTypes.func.isRequired,
+  Link: PropTypes.object,
 };
 
 export default Form;
