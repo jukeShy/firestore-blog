@@ -1,13 +1,17 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
+import { Routes } from './routes';
 import { Header } from '~components';
-import { Home } from '~pages';
 
 const App = () => {
+  const routes = Routes(true);
+
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-      <Home />
-    </div>
+      {routes}
+    </BrowserRouter>
   );
 };
 
