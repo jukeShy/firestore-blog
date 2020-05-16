@@ -5,7 +5,11 @@ const Default = ({ children }) => {
   return (
     <>
       <Header />
-      <main className='layout'>{children}</main>
+      <main className='layout'>
+        <div className='row'>
+          <div className='col s12'>{children}</div>
+        </div>
+      </main>
     </>
   );
 };

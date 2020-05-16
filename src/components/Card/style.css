@@ -1,5 +1,8 @@
 .m-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   min-height: 150px;
   height: 100%;
 }
@@ -29,10 +32,7 @@
 
 .m-card__body {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
+  
   padding: 15px;
   color: #fff;
   z-index: 3;

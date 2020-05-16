@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(11%, 1fr));
   grid-auto-rows: 90px;
+  margin: 0 -.75rem;
 }
 
 .masonry-item:nth-child(1) {
