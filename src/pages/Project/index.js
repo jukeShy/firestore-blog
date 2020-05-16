@@ -28,48 +28,6 @@ const Project = () => {
             rerum magnam ad voluptate repellat repudiandae?
           </p>
         </Section>
-        <Section>
-          <h1>Project</h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-        </Section>
-        <Section>
-          <h1>Project</h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-        </Section>
       </div>
     </Default>
   );
