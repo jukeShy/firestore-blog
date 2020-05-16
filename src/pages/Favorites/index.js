@@ -1,25 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Default } from '~/layouts';
-import { Card } from '~components';
+import { Card, GridList, GridItem } from '~components';
 
 const Favorites = () => {
   return (
     <Default>
       <h1>Favorites</h1>
-      <div className='row'>
-        <div className='col s4'>
-          <Card />
-        </div>
-        <div className='col s4'>
-          <Card />
-        </div>
-        <div className='col s4'>
-          <Card />
-        </div>
-        <div className='col s4'>
-          <Card />
-        </div>
-      </div>
+      <GridList>
+        <GridItem>
+          <Link to={`projects/111`}>
+            <Card />
+          </Link>
+        </GridItem>
+        <GridItem>
+          <Link to={`projects/111`}>
+            <Card />
+          </Link>
+        </GridItem>
+        <GridItem>
+          <Link to={`projects/111`}>
+            <Card />
+          </Link>
+        </GridItem>
+        <GridItem>
+          <Link to={`projects/111`}>
+            <Card />
+          </Link>
+        </GridItem>
+        <GridItem>
+          <Link to={`projects/111`}>
+            <Card />
+          </Link>
+        </GridItem>
+      </GridList>
     </Default>
   );
 };
