@@ -1,10 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Center } from '~/layouts';
+import { Form } from '~components';
 
 const Register = () => {
+  const onSubmit = (form, e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div>
-      <h2>Register</h2>
-    </div>
+    <Center>
+      <Form
+        formTitle='Register'
+        onSubmitHandler={onSubmit}
+        Link={<Link to='/login'>Already have an account?</Link>}
+      />
+    </Center>
   );
 };
 
