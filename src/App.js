@@ -8,7 +8,7 @@ import { Routes } from './routes';
 import './style.css';
 
 const App = () => {
-  const routes = Routes(true);
+  const routes = Routes(false);
 
   return (
     <Provider store={store}>
