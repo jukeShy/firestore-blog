@@ -1,5 +1,5 @@
 import { auth } from '~firebase';
-import { USER_LOGIN } from './types';
+import { USER_LOGIN, USER_LOGOUT } from './types';
 
 export const userLogin = (email, password) => async (dispatch) => {
   try {
@@ -10,9 +10,6 @@ export const userLogin = (email, password) => async (dispatch) => {
       displayName: user.displayName ? user.displayName : 'Friend',
     };
 
-    localStorage.setItem('STORAGE/uid', user.uid);
-    localStorage.setItem('STORAGE/displayName', user.displayName);
-
     dispatch({
       type: USER_LOGIN,
       payload: { uid: user.uid, displayName: user.displayName },
@@ -20,4 +17,12 @@ export const userLogin = (email, password) => async (dispatch) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const userLogout = () => async (dispatch) => {
+  await auth.signOut();
+
+  dispatch({
+    type: USER_LOGOUT,
+  });
 };
