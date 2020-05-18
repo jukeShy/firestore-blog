@@ -1,5 +1,5 @@
 import { USER_LOGIN } from '~redux/actions/authActions/types';
-import { USER_LOGOUT } from '../actions/authActions/types';
+import { USER_LOGOUT, USER_REGISTER } from '../actions/authActions/types';
 
 /* Возможно, хранить такую логику в редюсере стейта концептуально неверно */
 const STORAGE_UID = 'STORAGE_UID';
@@ -26,6 +26,7 @@ const initialState = {
 const authReducer = (state = initialState, { type, payload: user }) => {
   switch (type) {
     case USER_LOGIN:
+    case USER_REGISTER:
       populateStorage(user.uid, user.displayName);
       return { ...state, user: { ...state.user, ...user } };
     case USER_LOGOUT:
