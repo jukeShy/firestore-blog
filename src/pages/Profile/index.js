@@ -1,10 +1,12 @@
 import React from 'react';
-import { Default } from '~/layouts';
+import { Default, Section } from '~/layouts';
 
 const Profile = () => {
   return (
     <Default>
-      <h1>Profile</h1>
+      <Section>
+        <h1>Profile</h1>
+      </Section>
     </Default>
   );
 };
