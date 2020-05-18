@@ -20,9 +20,13 @@ export const userLogin = (email, password) => async (dispatch) => {
 };
 
 export const userLogout = () => async (dispatch) => {
-  await auth.signOut();
+  try {
+    await auth.signOut();
 
-  dispatch({
-    type: USER_LOGOUT,
-  });
+    dispatch({
+      type: USER_LOGOUT,
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };

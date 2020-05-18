@@ -1,6 +1,7 @@
 import { USER_LOGIN } from '~redux/actions/authActions/types';
 import { USER_LOGOUT } from '../actions/authActions/types';
 
+/* Возможно, хранить такую логику в редюсере стейта концептуально неверно */
 const STORAGE_UID = 'STORAGE_UID';
 const STORAGE_DISPLAY_NAME = 'STORAGE_DISPLAY_NAME';
 
@@ -13,6 +14,7 @@ const clearStorage = () => {
   localStorage.removeItem(STORAGE_UID);
   localStorage.removeItem(STORAGE_DISPLAY_NAME);
 };
+/* ==================================================================== */
 
 const initialState = {
   user: {
