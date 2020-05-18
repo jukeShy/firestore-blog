@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { userLogout } from '~redux/actions/authActions';
 import { Link } from 'react-router-dom';
 
+import './style.css';
+
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -33,13 +35,13 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href='!#'
+                  <button
+                    className='btn-flat logout'
                     onClick={() => dispatch(userLogout())}
                     title='Log out'
                   >
                     <i className='material-icons'>exit_to_app</i>
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
