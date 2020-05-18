@@ -1,21 +1,19 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
-import { BrowserRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+import { BrowserRouter } from 'react-router-dom';
 import { Routes } from './routes';
 
 import './style.css';
 
 const App = () => {
-  const routes = Routes(false);
+  const isAuthenticated = useSelector((state) => state.auth.user.uid);
+  const routes = Routes(isAuthenticated);
 
   return (
-    <Provider store={store}>
-      <div id='webapp'>
-        <BrowserRouter>{routes}</BrowserRouter>
-      </div>
-    </Provider>
+    <div id='webapp'>
+      <BrowserRouter>{routes}</BrowserRouter>
+    </div>
   );
 };
 
