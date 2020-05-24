@@ -7,17 +7,34 @@ import {
 } from './types';
 
 export const storyCreate = (story) => async (dispatch, getState) => {
+  let _story = {};
   const userId = getState().auth.user.uid;
-  const storageRef = storage.ref(`images/${story.image.name}`);
 
-  await storageRef.putString(story.image.src, 'data_url');
-  const imageUrl = await storageRef.getDownloadURL();
+  if (!story.image?.src || !story.image?.name) {
+    _story.image = { name: null, src: null };
+  } else {
+    const storageRef = storage.ref(`images/${story.image.name}`);
 
-  const _story = { ...story, userId, image: { ...story.image, src: imageUrl } };
+    await storageRef.putString(story.image.src, 'data_url');
+    const imageUrl = await storageRef.getDownloadURL();
 
-  await db.collection('stories').add(_story);
+    _story.image = {
+      name: story.image.name,
+      src: imageUrl,
+    };
+  }
 
-  dispatch({ type: STORY_CREATE, payload: _story });
+  _story.userId = userId;
+  _story.title = story.title;
+  _story.body = story.body;
+
+  // const _story = { ...story, userId, image: { ...story.image, src: imageUrl } };
+
+  console.log(_story);
+
+  const storyRef = await db.collection('stories').add(_story);
+
+  dispatch({ type: STORY_CREATE, payload: { ..._story, id: storyRef.id } });
 };
 
 export const storyFetch = () => async (dispatch) => {
