@@ -1,5 +1,10 @@
 import { db, storage } from '~firebase';
-import { STORY_CREATE, STORY_FETCH } from './types';
+import {
+  STORY_CREATE,
+  STORY_FETCH,
+  STORY_LOADING_TRUE,
+  STORY_LOADING_FALSE,
+} from './types';
 
 export const storyCreate = (story) => async (dispatch, getState) => {
   const userId = getState().auth.user.uid;
@@ -21,7 +26,13 @@ export const storyFetch = () => async (dispatch) => {
     const stories = docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
     dispatch({ type: STORY_FETCH, payload: stories });
+    dispatch(storyLoadingFalse());
   } catch (error) {
     console.log(error);
   }
 };
+
+export const storyLoadingTrue = () => async (dispatch) =>
+  dispatch({ type: STORY_LOADING_TRUE });
+export const storyLoadingFalse = () => async (dispatch) =>
+  dispatch({ type: STORY_LOADING_FALSE });
