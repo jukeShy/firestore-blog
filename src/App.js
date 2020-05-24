@@ -1,21 +1,30 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { userLogout } from '~redux/actions/authActions';
+import { auth } from '~firebase';
 import { BrowserRouter } from 'react-router-dom';
-
 import { Routes } from './routes';
 
 import './style.css';
 
 const App = () => {
-  const routes = Routes(true);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (!user) return dispatch(userLogout());
+
+      console.log('Welcome');
+    });
+  }, [dispatch]);
+
+  const isAuthenticated = useSelector((state) => state.auth.user.uid);
+  const routes = Routes(isAuthenticated);
 
   return (
-    <Provider store={store}>
-      <div id='webapp'>
-        <BrowserRouter>{routes}</BrowserRouter>
-      </div>
-    </Provider>
+    <div id='webapp'>
+      <BrowserRouter>{routes}</BrowserRouter>
+    </div>
   );
 };
 

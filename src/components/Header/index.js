@@ -1,7 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { userLogout } from '~redux/actions/authActions';
 import { Link } from 'react-router-dom';
 
+import './style.css';
+
 const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <header>
       <nav className='amber'>
@@ -27,6 +33,15 @@ const Header = () => {
                   <Link to='/profile/:id' title='Profile'>
                     <i className='material-icons'>person_outline</i>
                   </Link>
+                </li>
+                <li>
+                  <button
+                    className='btn-flat logout'
+                    onClick={() => dispatch(userLogout())}
+                    title='Log out'
+                  >
+                    <i className='material-icons'>exit_to_app</i>
+                  </button>
                 </li>
               </ul>
             </div>

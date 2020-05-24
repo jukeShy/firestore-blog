@@ -1,0 +1,3 @@
+export const USER_LOGIN = 'AUTH/USER_LOGIN';
+export const USER_LOGOUT = 'AUTH/USER_LOGOUT';
+export const USER_REGISTER = 'AUTH/USER_REGISTER';

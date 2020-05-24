@@ -14,9 +14,9 @@ const Routes = (isAuthenticated) => {
   if (!isAuthenticated) {
     return (
       <Switch>
-        <Route path='/register' exact component={Register} />
         <Route path='/login' exact component={Login} />
-        <Redirect to='/register' />
+        <Route path='/register' exact component={Register} />
+        <Redirect to='/login' />
       </Switch>
     );
   }
