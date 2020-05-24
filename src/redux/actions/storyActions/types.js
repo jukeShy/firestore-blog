@@ -1,1 +1,2 @@
 export const STORY_CREATE = 'STORY/STORY_CREATE';
+export const STORY_FETCH = 'STORY/STORY_FETCH';
