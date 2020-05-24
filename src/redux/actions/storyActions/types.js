@@ -1,0 +1,1 @@
+export const STORY_CREATE = 'STORY/STORY_CREATE';

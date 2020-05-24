@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { storyCreate } from '~redux/actions/storyActions';
 import { Default, Section } from '~/layouts';
 
 // @TODO
@@ -17,6 +19,8 @@ const Create = () => {
   };
   const [form, setForm] = useState(state);
 
+  const dispatch = useDispatch();
+
   const onChangeHandler = (e) => {
     if (e.target.name === 'file') return setFile();
 
@@ -29,7 +33,11 @@ const Create = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    console.log(form);
+    dispatch(
+      storyCreate({ title: form.title, body: form.body, image: form.image }),
+    );
+
+    console.log(form.image);
   };
 
   const setFile = () => {
