@@ -4,6 +4,7 @@ import {
   STORY_FETCH,
   STORY_LOADING_TRUE,
   STORY_LOADING_FALSE,
+  STORY_SET,
 } from './types';
 
 export const storyCreate = (story) => async (dispatch, getState) => {
@@ -28,10 +29,6 @@ export const storyCreate = (story) => async (dispatch, getState) => {
   _story.title = story.title;
   _story.body = story.body;
 
-  // const _story = { ...story, userId, image: { ...story.image, src: imageUrl } };
-
-  console.log(_story);
-
   const storyRef = await db.collection('stories').add(_story);
 
   dispatch({ type: STORY_CREATE, payload: { ..._story, id: storyRef.id } });
@@ -47,6 +44,30 @@ export const storyFetch = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const storySet = (story) => async (dispatch) => {
+  dispatch({ type: STORY_SET, payload: story });
+};
+
+export const storyGet = (id) => async (dispatch, getState) => {
+  const stories = getState().story.stories;
+
+  if (!stories.length) {
+    dispatch(storyLoadingTrue());
+    const docRef = await db.collection('stories').doc(id);
+
+    const doc = await docRef.get();
+
+    dispatch(storySet({ ...doc.data(), id: doc.id }));
+
+    return dispatch(storyLoadingFalse());
+  }
+
+  const story = stories.find((story) => story.id === id);
+  dispatch(storySet(story));
+
+  dispatch(storyLoadingFalse());
 };
 
 export const storyLoadingTrue = () => async (dispatch) =>

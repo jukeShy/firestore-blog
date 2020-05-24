@@ -1,34 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Default, Section } from '~/layouts';
-import { Hero } from '~components';
+import { Hero, Spinner } from '~components';
+import { storyGet } from '../../redux/actions/storyActions';
 
-const Project = () => {
+const Project = ({ match }) => {
+  let story = useSelector((state) => state.story.story);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(storyGet(match.params.id));
+
+    return () => {
+      story = { ...story };
+    };
+  }, [dispatch]);
+
   return (
     <Default>
-      <div className='project with-stack'>
-        <Hero image='https://images.pexels.com/photos/4273439/pexels-photo-4273439.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' />
-        <Section>
-          <h1>Project</h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Dignissimos, deleniti cumque! Adipisci recusandae doloremque, libero
-            deserunt repellendus veniam eius suscipit! Tempora, non natus eaque
-            rerum magnam ad voluptate repellat repudiandae?
-          </p>
-        </Section>
-      </div>
+      {!story.id ? (
+        <Spinner />
+      ) : (
+        <div className='project with-stack'>
+          <Hero image={story.image.src || ''} />
+          <Section>
+            <h1>{story.title}</h1>
+            <p>{story.body}</p>
+          </Section>
+        </div>
+      )}
     </Default>
   );
 };
