@@ -55,8 +55,8 @@ export const storyGet = (id) => async (dispatch, getState) => {
 
   if (!stories.length) {
     dispatch(storyLoadingTrue());
-    const docRef = await db.collection('stories').doc(id);
 
+    const docRef = await db.collection('stories').doc(id);
     const doc = await docRef.get();
 
     dispatch(storySet({ ...doc.data(), id: doc.id }));
@@ -72,5 +72,6 @@ export const storyGet = (id) => async (dispatch, getState) => {
 
 export const storyLoadingTrue = () => async (dispatch) =>
   dispatch({ type: STORY_LOADING_TRUE });
+
 export const storyLoadingFalse = () => async (dispatch) =>
   dispatch({ type: STORY_LOADING_FALSE });
