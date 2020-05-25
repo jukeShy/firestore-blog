@@ -17,8 +17,6 @@ const Header = () => {
 
     return () => {
       const instance = M.Sidenav.getInstance(elem);
-      console.log(instance);
-
       instance.destroy();
     };
   }, []);
