@@ -18,7 +18,7 @@ const ProfileForm = ({ onSubmitHandler }) => {
   return (
     <form onSubmit={onSubmitHandler.bind(this, form)}>
       <div className='row'>
-        <div className='input-field col s6'>
+        <div className='input-field col s12 m6'>
           <input
             name='displayName'
             value={form.displayName}
@@ -31,7 +31,7 @@ const ProfileForm = ({ onSubmitHandler }) => {
             Name
           </label>
         </div>
-        <div className='input-field col s6'>
+        <div className='input-field col s12 m6'>
           <input
             name='photoUrl'
             value={form.photoUrl}
@@ -48,7 +48,7 @@ const ProfileForm = ({ onSubmitHandler }) => {
         </div>
       </div>
       <div className='row'>
-        <div className='col s6'>
+        <div className='col s12 m6'>
           <button className='btn' type='url'>
             Submit
           </button>

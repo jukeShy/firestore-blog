@@ -63,7 +63,7 @@ const Create = () => {
       <Section>
         <form onSubmit={onSubmitHandler}>
           <div className='row'>
-            <div className='input-field col s6'>
+            <div className='input-field col s12 m6'>
               <input
                 id='title'
                 type='text'
@@ -76,7 +76,7 @@ const Create = () => {
                 Title
               </label>
             </div>
-            <div className='col s6'>
+            <div className='col s12 m6'>
               <div className='file-field input-field'>
                 <div className='btn'>
                   <span>Image</span>
