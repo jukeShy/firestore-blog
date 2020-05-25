@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import './style.css';
 
 const Form = ({ formTitle = 'Form', onSubmitHandler, Link }) => {
+  const isFormSending = useSelector((state) => state.auth.isFormSending);
+
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -31,6 +34,7 @@ const Form = ({ formTitle = 'Form', onSubmitHandler, Link }) => {
             name='email'
             value={form.email}
             onChange={onChangeHandler}
+            disabled={isFormSending}
           />
           <label htmlFor='email' className='active'>
             Email
@@ -47,6 +51,7 @@ const Form = ({ formTitle = 'Form', onSubmitHandler, Link }) => {
             name='password'
             value={form.password}
             onChange={onChangeHandler}
+            disabled={isFormSending}
           />
           <label htmlFor='password' className='active'>
             Password
@@ -55,7 +60,7 @@ const Form = ({ formTitle = 'Form', onSubmitHandler, Link }) => {
       </div>
       <div className='row'>
         <div className='inpuut-field col s12'>
-          <button type='submit' className='btn'>
+          <button type='submit' className='btn' disabled={isFormSending}>
             Submit
           </button>
         </div>
