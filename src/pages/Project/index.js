@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Default, Section } from '~/layouts';
 import { Hero, Spinner } from '~components';
-import { storyGet } from '../../redux/actions/storyActions';
+import { storyGet } from '~redux/actions/storyActions';
 
 const Project = ({ match }) => {
   let story = useSelector((state) => state.story.story);

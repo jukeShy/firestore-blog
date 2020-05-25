@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Default, Section } from '~/layouts';
-import { profileSetName, profileGet } from '../../redux/actions/profileActions';
+import { profileSetName, profileGet } from '~redux/actions/profileActions';
 
 import { Modal, ProfileForm, Spinner } from '~components';
 

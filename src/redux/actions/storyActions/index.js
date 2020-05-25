@@ -9,7 +9,10 @@ import {
 
 export const storyCreate = (story) => async (dispatch, getState) => {
   let _story = {};
-  const userId = getState().auth.user.uid;
+  const user = {
+    uid: getState().auth.user.uid,
+    displayName: getState().profile.currentProfile.displayName,
+  };
 
   if (!story.image?.src || !story.image?.name) {
     _story.image = { name: null, src: null };
@@ -25,7 +28,7 @@ export const storyCreate = (story) => async (dispatch, getState) => {
     };
   }
 
-  _story.userId = userId;
+  _story.user = user;
   _story.title = story.title;
   _story.body = story.body;
 

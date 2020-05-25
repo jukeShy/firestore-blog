@@ -41,6 +41,14 @@
 .m-card__title {
   margin-top: 0;
 }
+
+.btn-favorite {
+  position: absolute;
+  top: 15px; right: 15px;
+  color: #fff !important;
+  z-index: 3;
+}
+
 /* 
 .m-card:nth-child(1) {
    background-color: #fff59d ;
