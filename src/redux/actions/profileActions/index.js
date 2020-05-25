@@ -1,6 +1,11 @@
 import { auth, db } from '~firebase';
 
-import { PROFILE_SET_NAME } from './types';
+import {
+  PROFILE_SET_NAME,
+  PROFILE_GET,
+  PROFILE_LOAGING_TRUE,
+  PROFILE_LOAGING_FALSE,
+} from './types';
 import { Storage } from '~/storage';
 
 export const profileSetName = (name) => async (dispatch) => {
@@ -29,3 +34,24 @@ export const profileSetName = (name) => async (dispatch) => {
     console.error(error);
   }
 };
+
+export const profileGet = (uid) => async (dispatch) => {
+  try {
+    dispatch(profileLoadingTrue());
+
+    const userRef = await db.collection('users').doc(uid);
+    const user = await userRef.get();
+
+    dispatch({ type: PROFILE_GET, payload: user.data() });
+    dispatch(profileLoadingFalse());
+  } catch (error) {
+    console.error(error);
+    dispatch(profileLoadingFalse());
+  }
+};
+
+export const profileLoadingTrue = () => (dispatch) =>
+  dispatch({ type: PROFILE_LOAGING_TRUE });
+
+export const profileLoadingFalse = () => (dispatch) =>
+  dispatch({ type: PROFILE_LOAGING_FALSE });

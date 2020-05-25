@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const ProfileForm = ({ onSubmitHandler }) => {
-  const displayName = useSelector((state) => state.profile.displayName);
+  const displayName = useSelector(
+    (state) => state.profile.currentProfile.displayName,
+  );
 
   const [form, setForm] = useState({
     displayName,
