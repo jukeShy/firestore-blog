@@ -33,6 +33,7 @@ export const userLogin = (email, password) => async (dispatch) => {
 };
 
 export const userRegister = (email, password) => async (dispatch) => {
+  dispatch(formSendTrue());
   try {
     let { user } = await auth.createUserWithEmailAndPassword(email, password);
 
@@ -52,9 +53,12 @@ export const userRegister = (email, password) => async (dispatch) => {
       type: USER_REGISTER,
       payload: { uid: user.uid, displayName: user.displayName },
     });
+
+    dispatch(formSendFalse());
   } catch (error) {
     console.error(error);
 
+    dispatch(formSendFalse());
     alert.createToast(error.message);
   }
 };
