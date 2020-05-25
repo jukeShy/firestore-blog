@@ -1,5 +1,10 @@
 import { USER_LOGIN } from '~redux/actions/authActions/types';
-import { USER_LOGOUT, USER_REGISTER } from '../actions/authActions/types';
+import {
+  USER_LOGOUT,
+  USER_REGISTER,
+  FORM_SEND_TRUE,
+  FORM_SEND_FALSE,
+} from '../actions/authActions/types';
 
 /* Возможно, хранить такую логику в редюсере стейта концептуально неверно */
 const STORAGE_UID = 'STORAGE_UID';
@@ -17,6 +22,7 @@ const clearStorage = () => {
 /* ==================================================================== */
 
 const initialState = {
+  isFormSending: false,
   user: {
     uid: localStorage.getItem(STORAGE_UID),
     displayName: localStorage.getItem(STORAGE_DISPLAY_NAME),
@@ -32,6 +38,10 @@ const authReducer = (state = initialState, { type, payload: user }) => {
     case USER_LOGOUT:
       clearStorage();
       return { ...state, user: { uid: null, displayName: null } };
+    case FORM_SEND_TRUE:
+      return { ...state, isFormSending: true };
+    case FORM_SEND_FALSE:
+      return { ...state, isFormSending: false };
     default:
       return state;
   }

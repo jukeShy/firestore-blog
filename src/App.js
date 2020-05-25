@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { storyFetch } from './redux/actions/storyActions';
 import { userLogout } from '~redux/actions/authActions';
 import { auth } from '~firebase';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from './routes';
 
 import './style.css';
-import { storyFetch } from './redux/actions/storyActions';
 
 const App = () => {
   const dispatch = useDispatch();

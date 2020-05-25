@@ -1,7 +1,15 @@
 import { auth, db } from '~firebase';
-import { USER_LOGIN, USER_LOGOUT, USER_REGISTER } from './types';
+import {
+  USER_LOGIN,
+  USER_LOGOUT,
+  USER_REGISTER,
+  FORM_SEND_TRUE,
+  FORM_SEND_FALSE,
+} from './types';
+import { alert } from '~/alert';
 
 export const userLogin = (email, password) => async (dispatch) => {
+  dispatch(formSendTrue());
   try {
     let { user } = await auth.signInWithEmailAndPassword(email, password);
 
@@ -14,8 +22,13 @@ export const userLogin = (email, password) => async (dispatch) => {
       type: USER_LOGIN,
       payload: { uid: user.uid, displayName: user.displayName },
     });
+
+    dispatch(formSendFalse());
   } catch (error) {
     console.error(error);
+
+    dispatch(formSendFalse());
+    alert.createToast(error.message);
   }
 };
 
@@ -41,6 +54,8 @@ export const userRegister = (email, password) => async (dispatch) => {
     });
   } catch (error) {
     console.error(error);
+
+    alert.createToast(error.message);
   }
 };
 
@@ -55,3 +70,9 @@ export const userLogout = () => async (dispatch) => {
     console.error(error);
   }
 };
+
+export const formSendTrue = () => (dispatch) =>
+  dispatch({ type: FORM_SEND_TRUE });
+
+export const formSendFalse = () => (dispatch) =>
+  dispatch({ type: FORM_SEND_FALSE });
