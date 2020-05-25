@@ -17,7 +17,7 @@ const Card = ({ story: { title, body, image, user } }) => {
         {image.src && <img src={image.src} alt={title} />}
       </div>
       <button className='btn btn-flat btn-favorite'>
-        <i class='material-icons'>favorite</i>
+        <i className='material-icons'>favorite</i>
       </button>
       <div className='m-card__body'>
         <h5 className='m-card__title'>{title}</h5>

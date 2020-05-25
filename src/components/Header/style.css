@@ -7,3 +7,20 @@
 .btn-flat.logout:hover {
   background-color: rgba(0,0,0,0.1);
 }
+
+.logout-mobile {
+  width: 100% !important;
+  
+  padding: 0 32px !important;
+  color: #000 !important;
+}
+
+.logout-mobile > i {
+  margin-right: 32px !important;
+}
+
+@media only screen and (min-width: 993px) {
+  nav .sidenav-trigger {
+    display: none;
+}
+}
