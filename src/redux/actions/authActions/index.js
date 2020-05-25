@@ -6,6 +6,7 @@ import {
   FORM_SEND_TRUE,
   FORM_SEND_FALSE,
 } from './types';
+import { profileSetName } from '~redux/actions/profileActions';
 import { alert } from '~/alert';
 
 export const userLogin = (email, password) => async (dispatch) => {
@@ -13,15 +14,18 @@ export const userLogin = (email, password) => async (dispatch) => {
   try {
     let { user } = await auth.signInWithEmailAndPassword(email, password);
 
+    const displayName = user.displayName ? user.displayName : 'Friend';
+
     user = {
       uid: user.uid,
-      displayName: user.displayName ? user.displayName : 'Friend',
     };
 
     dispatch({
       type: USER_LOGIN,
-      payload: { uid: user.uid, displayName: user.displayName },
+      payload: { uid: user.uid },
     });
+
+    dispatch(profileSetName(displayName));
 
     dispatch(formSendFalse());
   } catch (error) {
@@ -36,10 +40,10 @@ export const userRegister = (email, password) => async (dispatch) => {
   dispatch(formSendTrue());
   try {
     let { user } = await auth.createUserWithEmailAndPassword(email, password);
+    const displayName = user.displayName ? user.displayName : 'Friend';
 
     user = {
       uid: user.uid,
-      displayName: user.displayName ? user.displayName : 'Friend',
     };
 
     const userRef = await db.doc(`users/${user.uid}`);
@@ -51,8 +55,10 @@ export const userRegister = (email, password) => async (dispatch) => {
 
     dispatch({
       type: USER_REGISTER,
-      payload: { uid: user.uid, displayName: user.displayName },
+      payload: { uid: user.uid },
     });
+
+    dispatch(profileSetName(displayName));
 
     dispatch(formSendFalse());
   } catch (error) {
@@ -70,6 +76,8 @@ export const userLogout = () => async (dispatch) => {
     dispatch({
       type: USER_LOGOUT,
     });
+
+    dispatch(profileSetName(null));
   } catch (error) {
     console.error(error);
   }
