@@ -36,8 +36,6 @@ const Create = () => {
     dispatch(
       storyCreate({ title: form.title, body: form.body, image: form.image }),
     );
-
-    console.log(form.image);
   };
 
   const setFile = () => {

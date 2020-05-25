@@ -10,33 +10,7 @@ const Favorites = () => {
         <h1>Favorites</h1>
       </Section>
       <Section>
-        <GridList>
-          <GridItem>
-            <Link to={`projects/111`}>
-              <Card />
-            </Link>
-          </GridItem>
-          <GridItem>
-            <Link to={`projects/111`}>
-              <Card />
-            </Link>
-          </GridItem>
-          <GridItem>
-            <Link to={`projects/111`}>
-              <Card />
-            </Link>
-          </GridItem>
-          <GridItem>
-            <Link to={`projects/111`}>
-              <Card />
-            </Link>
-          </GridItem>
-          <GridItem>
-            <Link to={`projects/111`}>
-              <Card />
-            </Link>
-          </GridItem>
-        </GridList>
+        <p>Not ready yet</p>
       </Section>
     </Default>
   );
