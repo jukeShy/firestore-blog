@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes } from './routes';
 
 import './style.css';
+import { storyFetch } from './redux/actions/storyActions';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const App = () => {
       if (!user) return dispatch(userLogout());
 
       console.log('Welcome');
+      dispatch(storyFetch());
     });
   }, [dispatch]);
 

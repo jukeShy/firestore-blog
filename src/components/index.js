@@ -6,3 +6,4 @@ export { default as Card } from './Card';
 export { default as GridList } from './GridList';
 export { default as GridItem } from './GridList/GridItem';
 export { default as Hero } from './Hero';
+export { default as Spinner } from './Spinner';
