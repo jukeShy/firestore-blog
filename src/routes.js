@@ -26,7 +26,7 @@ const Routes = (isAuthenticated) => {
       <Route path='/' exact component={Home} />
       <Route path='/favorites' exact component={Favorites} />
       <Route path='/projects/:id' exact component={Project} />
-      <Route path='/profile/:id' exact component={Profile} />
+      <Route path='/profile/:uid' exact component={Profile} />
       <Route path='/create' exact component={Create} />
       <Redirect to='/' />
     </Switch>

@@ -7,3 +7,5 @@ export { default as GridList } from './GridList';
 export { default as GridItem } from './GridList/GridItem';
 export { default as Hero } from './Hero';
 export { default as Spinner } from './Spinner';
+export { default as Modal } from './Modal';
+export { default as ProfileForm } from './ProfileForm';

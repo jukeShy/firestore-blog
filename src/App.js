@@ -15,7 +15,7 @@ const App = () => {
     auth.onAuthStateChanged((user) => {
       if (!user) return dispatch(userLogout());
 
-      console.log('Welcome');
+      console.log(user);
       dispatch(storyFetch());
     });
   }, [dispatch]);

@@ -44,6 +44,7 @@ export const userRegister = (email, password) => async (dispatch) => {
 
     user = {
       uid: user.uid,
+      displayName,
     };
 
     const userRef = await db.doc(`users/${user.uid}`);

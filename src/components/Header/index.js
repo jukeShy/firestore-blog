@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { userLogout } from '~redux/actions/authActions';
 import { Link } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 const Header = () => {
+  const uid = useSelector((state) => state.auth.user.uid);
   const dispatch = useDispatch();
 
   return (
@@ -30,7 +32,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/profile/:id' title='Profile'>
+                  <Link to={`/profile/${uid}`} title='Profile'>
                     <i className='material-icons'>person_outline</i>
                   </Link>
                 </li>
