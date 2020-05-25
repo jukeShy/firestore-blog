@@ -1,70 +1,40 @@
-Смотреть [тут](https://wonderful-kilby-27e0a4.netlify.app/)
+Посмотреть можно [тут](https://wonderful-kilby-27e0a4.netlify.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Что это и зачем
 
-## Available Scripts
+Простое приложение для добавление, редактирования(в будущем) и просмотра постов, работы с профилями,  
+с регистрацией и аутентификацией, с использованием Firebase.  
+Целью было разработать приложение с уделенным вниманием к архитектуре, проектировке "бекенда"  
+и работе с данными, общему флоу.
 
-In the project directory, you can run:
+## Что тут есть?
+
+1. **Redux** - потому что хранить данные и логику для этих данных в одном месте хорошо
+1. **Redux thunk** - потому что ассинхронные запросы к firebase это круто
+1. **React router dom** - чтобы менялись страницы
+1. **React/Redux hooks** - это удобно
+1. **Firebase Cloud Firestore/Authentication/Storage** - чтобы регистрировать, добавлять записи  
+и хранить картинки. Почти как свой бекенд
+1. **Javascript ES6/ES7/ES8** - стрелочные функции, async/await, деструктуризация - все самое модное 
+1. **Расширенные настройки webpack** - чтобы делать аллиасы и не прыгать по фолдерам при импортах
+1. **Materialize.css** - чтобы было красиво(терпимо)
+
+
+## Как пощупать
+
+Клонируем ветку, после в папке проекта из терминала:
+
+### `npm install`
+
+Скачает все зависимости
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Заведет проект на [http://localhost:3000](http://localhost:3000)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Это не production ready проект
 
-### `npm test`
+Иначе мне бы пришлось потратить/тратить на него столько времени, сколько у меня нет. Проект в разработке
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
